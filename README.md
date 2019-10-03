@@ -10,5 +10,5 @@
 
 ## References
 
-1. [vue.js Cheastsheet](https://www.vuemastery.com/pdf/Vue-Essentials-Cheat-Sheet.pdf)
+1. [vue.js Cheatsheet](https://www.vuemastery.com/pdf/Vue-Essentials-Cheat-Sheet.pdf)
 
