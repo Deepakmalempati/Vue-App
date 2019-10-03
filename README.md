@@ -1,6 +1,7 @@
 # Vue-App
 <hr>
-## Team Members
+
+ ## Team Members
 
 1. Deepak Malempati
 1. Chaitanya Popuri
