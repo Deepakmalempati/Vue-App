@@ -11,4 +11,5 @@
 ## References
 
 1. [vue.js Cheatsheet](https://www.vuemastery.com/pdf/Vue-Essentials-Cheat-Sheet.pdf)
+1. [Vue.js Beginner Guide](https://vuejs.org/v2/guide/)
 
