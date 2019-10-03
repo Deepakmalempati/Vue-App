@@ -1,0 +1,102 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <!-- get current Bootstrap Material Design styles from https://mdbootstrap.com/md-bootstrap-cdn/ -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="product">
+        <div class="row">
+            <div style="margin-left: 1050px; margin-top: 10px;">
+                <h4>No.of items added to Cart:</h4>
+            </div>
+            <button style="margin-left: 1250px; margin-top: 20px;">Items {{items}}</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 container-fluid"></div>
+            <div class="col-sm-4 container-fluid">
+                <h1>{{  myname }}</h1>
+                <img v-bind:src="image" width="300px" height="500px">
+
+            </div>
+            <div class="container-fluid col-md-5" style="margin: 60px;" id="itemdetails">
+
+                <p v-if="instock >=10" style="color: green">In stock</p>
+                <p v-else-if="instock >= 1 && instock < 10">Only 1 left in stock</p>
+                <p v-else style="color: red">Out of stock</p>
+                <ul>
+                    <li v-for="s in specs ">{{s}}</li>
+                </ul>
+                <p><strong>Choose color and variant:</strong></p>
+                <p v-for="v in variant" @mouseover="updateimage(v.variantimage)">{{v.color}}</p>
+                <p v-for="v in variant" @mouseover="updatestock(v.variantinstock)">{{v.storage}}</p>
+
+
+                <button v-on:click="addtocart" :disabled="!instock">Add to Cart</button>
+
+                <button v-on:click="items -= 1">Remove from cart</button>
+
+
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row container container-fluid">
+            <div class="col-sm-1 container-fluid"></div>
+            <div class="container-fluid col-md-4">
+                <h2>Order Summary</h2>
+                <fieldset class="mt-4">
+
+                    Customer Name: <input v-model="customername" id="customername" type="text" minlength="2"
+                        maxlength="40">
+                </fieldset>
+
+                <fieldset class="mt-4">
+                    <label>Shipping Address:</label><br>
+                    <label>Line 1</label>
+                    <input v-model="line1" id="line1" type="text"><br>
+                    <label>Line 2</label>
+                    <input v-model="line2" id="line2" type="text"><br>
+                    <label>City</label>
+                    <input v-model="city" id="city" type="text"><br>
+                    <label>Zip code</label>
+                    <input v-model="zip" id="zip" type="text">
+
+                </fieldset>
+
+            </div>
+            <div class="container-fluid col-md-4">
+                <h2>Review:</h2>
+                <p>{{ displayorder }}</p>
+                <br>
+                
+                <legend>Choose your Delivery Speed:</legend>
+                <input type="radio" name="delievry" value="normal">Normal
+                <input type="radio" name="delievry" value="express">Express<br>
+                
+                <br>
+                <input type="submit" value="Submit">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+<footer>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+
+<script src="index.js"></script>
+
+</html>
